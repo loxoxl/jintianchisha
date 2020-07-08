@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>今天吃点啥</title>
+
+    <style>
+        .box{
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            margin-top: 30rem;
+        }
+        #text{font-size: 6rem;}
+        #confirm{
+            font-size: 4rem;
+            margin-top: 4rem;
+            padding: 1rem 4rem;
+            background: #fecf05;
+            border: none;
+            border-radius: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div id="text">今天中午吃啥</div>
+        <button id="confirm">就决定吃你了</button>
+    </div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    var foods = ['汉堡','螺蛳粉','凉皮','火锅','过桥米线','饺子','铁锅饭','卤肉饭','炸酱面','麻辣烫','炒粉','云吞','炸鸡','手抓饼'];
+    var eat = '';
+
+    setInterval(function(){
+        var num = getRandom(0,foods.length);
+        eat = foods[num];
+        $('#text').html(eat);
+    },100);
+
+    function getRandom(b,e){
+        if(!b && b!=0 || !e){return "?";}
+        return Math.floor( ( Math.random() * e ) + b );
+    }
+
+    $('#confirm').click(function(event) {
+        alert(eat);
+    });
+</script>
+</body>
+</html>
